@@ -176,47 +176,48 @@
 
 								<div id="advanced" class="collapse">
 									<!--Hazard Insurance-->
-								<div class="container">	
-									<div class="row">
-										<!-- Hazard Ins -->
-										<div class="form-group col-xs-12 col-sm-3">
-											<label for="hazardInsurance" class="control-label">Hazard Insurance <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the annual hazard insurance amount"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-											<div class="input-group">
-												<span class="input-group-addon" style="">$</span>
-												<input name="hazardInsurance" id="hazardInsurance" type="text" class="form-control" aria-describedby="hazardInsurance" maxlength="5" />
-												<span class="input-group-addon" style="margin-left: -1px"> /yr</span>
+									<div class="container">	
+										<div class="row">
+											<!-- Hazard Ins -->
+											<div class="form-group col-xs-12 col-sm-3">
+												<label for="hazardInsurance" class="control-label">Hazard Insurance <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the annual hazard insurance amount"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+												<div class="input-group">
+													<span class="input-group-addon" style="">$</span>
+													<input name="hazardInsurance" id="hazardInsurance" type="text" class="form-control" aria-describedby="hazardInsurance" maxlength="5" />
+													<span class="input-group-addon" style="margin-left: -1px"> /yr</span>
+												</div>
 											</div>
-										</div>
-										<!--PMI-->
-										<div class="form-group col-xs-12 col-sm-3">
-											<label for="pmi" class="control-label">Private Mortgage Insurance <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the monthly PMI"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-											<div class="input-group">
-												<span class="input-group-addon" style="">$</span>
-												<input name="pmi" id="pmi" type="text" class="form-control" aria-describedby="pmi" maxlength="3" />
-												<span class="input-group-addon" style="margin-left: -1px">/month</span>
+											<!--PMI-->
+											<div class="form-group col-xs-12 col-sm-3">
+												<label for="pmi" class="control-label">Private Mortgage Insurance <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the monthly PMI"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+												<div class="input-group">
+													<span class="input-group-addon" style="">$</span>
+													<input name="pmi" id="pmi" type="text" class="form-control" aria-describedby="pmi" maxlength="3" />
+													<span class="input-group-addon" style="margin-left: -1px">/month</span>
+												</div>
 											</div>
-										</div>
-										<!--Amort Schedule Selector -->
-										<div class="form-group col-xs-12 col-sm-3">
-											<label for="amortization" class="control-label">Desired amortization schedule <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the desired amortization schedule periods"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-											<div class="input-group">
-												<label class="radio-inline active">
-													<input type="radio" name="amortization" id="amortYearly" value="2" checked="checked"> Yearly
-												</label>
-												<label class="radio-inline">
-													<input type="radio" name="amortization" id="amortMonthly" value="1"> Monthly
-												</label>
+											<!--Amort Schedule Selector -->
+											<div class="form-group col-xs-12 col-sm-3">
+												<label for="amortization" class="control-label">Desired amortization schedule <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the desired amortization schedule periods"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+												<div class="input-group">
+													<label class="radio-inline active">
+														<input type="radio" name="amortization" id="amortYearly" value="2" checked="checked"> Yearly
+													</label>
+													<label class="radio-inline">
+														<input type="radio" name="amortization" id="amortMonthly" value="1"> Monthly
+													</label>
+												</div>
 											</div>
-										</div>
-										<!--estimateTipmi bool Selector -->
-										<div class="form-group col-xs-12 col-sm-3 " style="display:none">
-											<div class="input-group">
-												<label class="radio-inline active">
-													<input type="radio" name="estimateTipmi" id="estimateTipmiYes" value="Y" checked="checked">Yes
-												</label>
-												<label class="radio-inline">
-													<input type="radio" name="estimateTipmi" id="estimateTipmiNo" value="N">No
-												</label>
+											<!--estimateTipmi bool Selector -->
+											<div class="form-group col-xs-12 col-sm-3 " style="display:none">
+												<div class="input-group">
+													<label class="radio-inline active">
+														<input type="radio" name="estimateTipmi" id="estimateTipmiYes" value="Y" checked="checked">Yes
+													</label>
+													<label class="radio-inline">
+														<input type="radio" name="estimateTipmi" id="estimateTipmiNo" value="N">No
+													</label>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -226,8 +227,6 @@
 									<div class="row" style="padding-top: 20px">
 										<div class="form-group col-xs-12">
 											<button class="btn btn-link col-xs-12" id="advancedSimple" data-toggle="collapse" data-target="#advanced" type="button" style="margin-right: 5px">Advanced <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
-										</div>
-										<div class="form-group col-xs-12">
 											<button class="btn btn-default center" type="reset">Reset</button>
 											<button class="btn btn-primary center pull-right" type="submit">Calculate</button>
 										</div>
