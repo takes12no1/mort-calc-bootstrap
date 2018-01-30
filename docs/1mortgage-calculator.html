@@ -117,7 +117,7 @@
 								<div class="container">	
 									<div class="row">
 										<!--Property Value Input-->
-										<div class="form-group col-xs-12 col-sm-3" style="padding-left: 0px">
+										<div class="form-group col-xs-12 col-sm-3">
 											<label id="homePriceLbl" class="calcLabels" for="propertyValue" style="font-size: 12px; color: #23395B">Home Price</label>
 											<div class="input-group">
 												<span class="input-group-addon">$</span>
@@ -143,10 +143,10 @@
 									</div>
 								</div>	
 								<div class="container">	
-									<div class="row">
+									<div class="row" style="padding-top: 20px">
 										<!--Loan Amount Input-->
 										<div class="form-group col-xs-12 col-sm-3">
-											<label class="" for="loanAmount" style="">Loan amount </label><br>
+											<label class="control-label" for="loanAmount">Loan amount </label><br>
 											<div class="input-group">
 												<span class="input-group-addon" style="">$</span>
 												<input name="loanAmount" id="loanAmount" class="form-control" placeholder="Enter Loan Amount" aria-describedby="loanAmount" maxlength="10" />
@@ -154,7 +154,7 @@
 										</div>
 										<!--Term-->
 										<div class="form-group col-xs-12 col-sm-3">
-											<label class="" for="termMonths">Number of months <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the Term in Months"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+											<label class="control-label" for="termMonths">Number of months <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the Term in Months"><span class="glyphicon glyphicon-question-sign"></span></a></label>
 											<div class="input-group">
 												<input name="termMonths" id="termMonths" type="text" class="form-control" aria-describedby="termMonths" maxlength="3" />
 												<span class="input-group-addon" style="margin-left: -1px">months</span>
@@ -222,12 +222,16 @@
 									</div>
 								</div>
 								<!--buttons-->
-								<div class="form-group col-xs-12">
-									<button class="btn btn-link col-xs-12" id="advancedSimple" data-toggle="collapse" data-target="#advanced" type="button" style="margin-right: 5px">Advanced <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
-								</div>
-								<div class="form-group col-xs-12">
-									<button class="btn btn-default center" type="reset">Reset</button>
-									<button class="btn btn-primary center pull-right" type="submit">Calculate</button>
+								<div class="container">	
+									<div class="row" style="padding-top: 20px">
+										<div class="form-group col-xs-12">
+											<button class="btn btn-link col-xs-12" id="advancedSimple" data-toggle="collapse" data-target="#advanced" type="button" style="margin-right: 5px">Advanced <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
+										</div>
+										<div class="form-group col-xs-12">
+											<button class="btn btn-default center" type="reset">Reset</button>
+											<button class="btn btn-primary center pull-right" type="submit">Calculate</button>
+										</div>
+									</div>
 								</div>
 								
 								<!--end buttons-->
