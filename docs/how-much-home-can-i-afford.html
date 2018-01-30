@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon" id="favicon">
+	<title>Mortgage Calculator</title>
+	<!--Style Sheets-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/calcapps.css" />
+
+	<!--Library Scripts-->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/Chart.js"></script>
+
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/how-much-home-can-i-afford.js"></script>
+	<script src="js/commonCalc.js"></script>
+
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="stretched no-transition" itemid="body">
+	<div class="container clearfix" style="margin-top:10px">
+		<div class="row">
+			<div id="menuContainer" class="hidden-xs hidden-sm col-md-3">
+			</div>
+			<!--Begin the App-->
+			<div class="col-xs-12 col-md-9">
+
+				<!--TopCopy-->
+				<h3 class="noTopMargin visible-md visible-lg">Use Our Home Affordability Calculator to Determine How Much Home Can You Afford </h3>
+				<p class="visible-md visible-lg">When you're buying a home, mortgage lenders don't look just at your income, assets, and the down payment you have. They look at all of your liabilities and obligations as well, including auto loans, credit card debt, child support, potential property
+					taxes and insurance, and your overall credit rating. Use our home affordability calculator to determine how much of a mortgage you may be able to obtain.</p><br>
+				<div id="calcPageheaderMobile" class="visible-xs visible-sm ">
+					<h3 class="noTopMargin marginCenter" style="font-size: 2em; text-align: center">Use Our Home Affordability Calculator to Determine How Much Home Can You Afford <a data-toggle="collapse" data-target="#mblIntroParagraph"><span class="glyphicon glyphicon-question-sign"></span></a></h3>
+					<div id="mblIntroParagraph" class="collapse">
+						<p>When you're buying a home, mortgage lenders don't look just at your income, assets, and the down payment you have. They look at all of your liabilities and obligations as well, including auto loans, credit card debt, child support, potential property
+							taxes and insurance, and your overall credit rating. Use our home affordability calculator to determine how much of a mortgage you may be able to obtain.</p>
+					</div>
+				</div>
+				<!--Form-->
+				<div id="formContainer" class="col-xs-12 col-sm-4">
+					<form id="restRequestForm" name="restRequestForm" method="post" action="" class="marginCenter" role="form" data-toggle="validator">
+						<div class="row">
+
+							<h4>Income and Debt Obligations</h4>
+							<!--combined annual income Input-->
+							<div class="row">
+								<div class="form-group col-xs-12">
+									<label class="" for="combinedIncome">Current combined annual income <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter combined annual income."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="combinedIncome" id="combinedIncome" class="form-control" aria-describedby="combinedIncome" pattern="[1-9][0-9]{0,4}" maxlength="10" autofocus />
+										<span class="input-group-addon" style="margin-left: -1px">Per year</span>
+									</div>
+								</div>
+							</div>
+							<!--Monthly auto payments-->
+							<div class="row">
+								<div class="form-group col-xs-12">
+									<label class="" for="autoPayments">Auto payments <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Monthly auto payments."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="autoPayments" id="autoPayments" class="form-control" aria-describedby="autoPayments" pattern="[1-9][0-9]{0,4}" maxlength="5" />
+										<span class="input-group-addon" style="margin-left: -1px">Per month</span>
+									</div>
+								</div>
+							</div>
+							<!--Monthly credit card payments-->
+							<div class="row">
+								<div class="form-group col-xs-12">
+									<label class="" for="ccPayments">Credit card payments <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter Monthly credit card payments."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="ccPayments" id="ccPayments" class="form-control" aria-describedby="ccPayments" pattern="[1-9][0-9]{0,4}" maxlength="5" />
+										<span class="input-group-addon" style="margin-left: -1px">Per month</span>
+									</div>
+								</div>
+							</div>
+							<h4>New Loan Assumptions</h4>
+							<!--Annual interest rate on new mortgage-->
+							<div class="row">
+								<div class="form-group col-xs-12">
+									<label for="mortgageRate" class="control-label">Mortgage Interest Rate <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the Annual Interest Rate"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<input name="mortgageRate" id="mortgageRate" type="text" class="form-control" aria-describedby="mortgageRate" maxlength="6" />
+										<span class="input-group-addon" style="margin-left: -1px">Annual %</span>
+									</div>
+								</div>
+							</div>
+							<!--Funds available for a down payment ($)-->
+							<div class="row">
+								<div class="form-group col-xs-12">
+									<label class="" for="downPayment">Funds available for a down payment <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Funds available for a down payment."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="downPayment" id="downPayment" class="form-control" aria-describedby="downPayment" pattern="[1-9][0-9]{0,4}" maxlength="8" autofocus />
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div id="advanced" class="collapse" style="">
+							<h4>Advanced Options</h4>
+							<!--Monthly child support payments-->
+							<div class="row">
+								<div class="form-group">
+									<label class="" for="childSupport">Monthly child support payments <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Monthly child support payments."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="childSupport" id="childSupport" class="form-control" aria-describedby="childSupport" pattern="[1-9][0-9]{0,4}" maxlength="6" />
+										<span class="input-group-addon" style="margin-left: -1px">Per month</span>
+									</div>
+								</div>
+							</div>
+							<!--Monthly association fees-->
+							<div class="row">
+								<div class="form-group">
+									<label class="" for="associationFees">Monthly association fees <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter Monthly association fees."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="associationFees" id="associationFees" class="form-control" aria-describedby="associationFees" pattern="[1-9][0-9]{0,4}" maxlength="4" />
+										<span class="input-group-addon" style="margin-left: -1px">Per month</span>
+									</div>
+								</div>
+							</div>
+							<!--Other monthly obligations-->
+							<div class="row">
+								<div class="form-group">
+									<label class="" for="otherObligations">Other monthly obligations (not including current mortgage payment) <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter Other monthly obligations."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="otherObligations" id="otherObligations" class="form-control" aria-describedby="otherObligations" pattern="[1-9][0-9]{0,4}" maxlength="6" />
+										<span class="input-group-addon" style="margin-left: -1px">Per month</span>
+									</div>
+								</div>
+							</div>
+							<!--Term of new mortgage (years)-->
+							<div class="row">
+								<div class="form-group">
+									<label for="mortgageTerm" class="control-label">Term of new mortgage <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the desired Term of new mortgage"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<label class="radio-inline active">
+													<input type="radio" name="mortgageTerm" id="mortgageTerm15" value="15"> 15yrs
+												</label>
+										<label class="radio-inline">
+													<input type="radio" name="mortgageTerm" id="mortgageTerm20" value="20"> 20yrs
+												</label>
+										<label class="radio-inline">
+													<input type="radio" name="mortgageTerm" id="mortgageTerm30" value="30" checked="checked"> 30yrs
+												</label>
+										<label class="radio-inline">
+													<input type="radio" name="mortgageTerm" id="mortgageTerm40" value="40"> 40yrs
+												</label>
+									</div>
+								</div>
+							</div>
+							<!--Estimated annual property taxes ($)-->
+							<div class="row">
+								<div class="form-group">
+									<label class="" for="propertyTaxes">Estimated annual property taxes <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Estimated annual property taxes."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="propertyTaxes" id="propertyTaxes" class="form-control" aria-describedby="propertyTaxes" pattern="[1-9][0-9]{0,4}" maxlength="8" />
+										<span class="input-group-addon" style="margin-left: -1px">Per year</span>
+									</div>
+								</div>
+							</div>
+							<!--Estimated annual homeowner's insurance ($)-->
+							<div class="row">
+								<div class="form-group">
+									<label class="" for="hazardInsurance">Estimated annual homeowner's insurance <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter Estimated annual homeowner's insurance."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<span class="input-group-addon" style="">$</span>
+										<input name="hazardInsurance" id="hazardInsurance" class="form-control" aria-describedby="hazardInsurance" pattern="[1-9][0-9]{0,4}" maxlength="6" />
+										<span class="input-group-addon" style="margin-left: -1px">Per year</span>
+									</div>
+								</div>
+							</div>
+							<!--Front-end ratio-->
+							<div class="row">
+								<div class="form-group">
+									<label for="frontRatio" class="control-label">Front-end ratio <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Also known as the housing ratio, lenders use this ratio along with the back-end ratio to determine the maximum loan amount. Housing ratio equals combined (principal + interest + taxes + insurance) monthly mortgage payment divided by your gross monthly income. For example, a combined monthly mortgage payment of $1,200 divided by gross monthly income of $4,500 equals a housing ratio of 27%. Use a front-end ratio of 28% for conservative results and as high as 36% for aggressive results (usually requires a excellent credit and a higher down payment)."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<label class="radio-inline active">
+													<input type="radio" name="frontRatio" id="frontRatio28" value="1" checked="checked"> 28%
+												</label>
+										<label class="radio-inline">
+													<input type="radio" name="frontRatio" id="frontRatio33" value="2"> 33%
+												</label>
+										<label class="radio-inline">
+													<input type="radio" name="frontRatio" id="frontRatio36" value="3"> 36%
+												</label>
+									</div>
+								</div>
+							</div>
+							<!--Back-end ratio-->
+							<div class="row">
+								<div class="form-group">
+									<label for="backRatio" class="control-label">Back-end ratio <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Also known as the debt ratio, lenders use this ratio along with the front-end ratio to determine the maximum loan amount. Debt ratio equals your combined monthly mortgage payment plus any other monthly debt obligations such as credit cards and alimony divided by your gross monthly income. Use a front-end ratio of 33% for conservative results and as high as 42% for aggressive results (usually requires a excellent credit and a higher down payment)."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+									<div class="input-group">
+										<label class="radio-inline active">
+													<input type="radio" name="backRatio" id="backRatio36" value="1" checked="checked"> 36%
+												</label>
+										<label class="radio-inline">
+													<input type="radio" name="backRatio" id="backRatio40" value="2"> 40%
+												</label>
+										<label class="radio-inline">
+													<input type="radio" name="backRatio" id="backRatio45" value="3"> 45%
+												</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--buttons-->
+						<div class="row">
+							<div class="form-group col-xs-12 margin-top20 ">
+								<button class="btn btn-default center col-xs-4" type="reset" style="margin-right: 5px">Reset</button>
+								<button class="btn btn-primary center col-xs-7" type="submit">Calculate</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group">
+								<button class="btn btn-link col-xs-12" id="advancedSimple" data-toggle="collapse" data-target="#advanced" type="button" style="margin-right: 5px">Advanced <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
+							</div>
+						</div>
+						<!--end buttons-->
+					</form>
+				</div>
+				<!--results-->
+				<div id="resultContainer" class="col-xs-12 col-sm-7" style="">
+					<div>
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a></li>
+							<li role="presentation"><a href="#resultsTableContainer" aria-controls="resultsTableContainer" role="tab" data-toggle="tab">Results Table</a></li>
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane fade active in col-xs-12" id="summary">
+								<div class="alert alert-success margin-top20" role="alert">The calculated results will appear here after you input some basic information. Give it a try! </div>
+							</div>
+							<div role="tabpanel" class="tab-pane fade col-xs-12 margin-top20" id="resultsTableContainer">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Bottom Copy-->
+				<div class="row">
+					<div id="" class="col-xs-12" style="">
+						<p>&nbsp</p>
+						<p>Our mortgage loan calculators were designed to help you become better informed about all of your choices so you can shop smarter. View more <a href="/mortgage-resources/calculators">calculators</a>.</p>
+						<p>Have questions? Want to learn more about home loans? Contact us <a href="/about-us/contact">online</a> or call <span style="display:inline-block; white-space:nowrap;">800-317-7463</span>.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>

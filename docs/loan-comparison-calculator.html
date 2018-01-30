@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon" id="favicon">
+	<title>Mortgage Calculator</title>
+	<!--Style Sheets-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/calcapps.css" />
+	<link rel="stylesheet" href="css/respTable.css" />
+
+
+	<!--Library Scripts-->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/Chart.js"></script>
+	<script src="js/commonCalc.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/loan-comparison-calculator.js"></script>
+	<script src="js/respTable.js"></script>
+
+
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="stretched no-transition lato" itemid="body">
+	<div class="container clearfix" style="margin-top:10px">
+		<div class="row">
+			<div id="menuContainer" class="hidden-xs hidden-sm col-md-3">
+			</div>
+			<!--Begin the App-->
+			<div class="col-xs-12 col-md-9">
+				<div>
+					<!--TopCopy-->
+					<h3 class="noTopMargin visible-md visible-lg">Calculate Loans With Our Loan Comparison Calculator</h3>
+					<p class="visible-md visible-lg">In addition to the calculated monthly payments, annual percentage rate (APR) offers a good apples-to-apples comparison between loans. APR takes into account the varying discount points, closing costs and fees that are typically added into the loan
+						amount and financed over the term of the loan. If the fees are paid "out-of-pocket" then the APR will be the same as the stated interest rate. Use this calculator to help determine the best loan option for you.</p><br>
+					<div id="calcPageheaderMobile" class="visible-xs visible-sm ">
+						<h3 class="noTopMargin marginCenter" style="font-size: 2em; text-align: center">Calculate Loans With Our Loan Comparison Calculator <a data-toggle="collapse" data-target="#mblIntroParagraph"><span class="glyphicon glyphicon-question-sign"></span></a></h3>
+						<div id="mblIntroParagraph" class="collapse">
+							<p>In addition to the calculated monthly payments, annual percentage rate (APR) offers a good apples-to-apples comparison between loans. APR takes into account the varying discount points, closing costs and fees that are typically added into the loan
+								amount and financed over the term of the loan. If the fees are paid "out-of-pocket" then the APR will be the same as the stated interest rate. Use this calculator to help determine the best loan option for you.</p>
+						</div>
+					</div>
+					<!--Form-->
+
+					<!-- .cd-products-comparison-table -->
+					<div id="formContainer" class="">
+
+						<form id="restRequestForm" name="restRequestForm" method="post" action="" class="marginCenter" role="form" data-toggle="validator">
+							<div class="cd-products-comparison-table">
+								<div class="cd-products-table">
+									<div class="features">
+										<div class="">&nbsp;</div>
+										<ul class="cd-features-list" style="padding-left: 0px">
+											<li>Loan Amount</li>
+											<li>Term</li>
+											<li>Interest rate</li>
+											<li>Discount points</li>
+											<li>Origination fee</li>
+											<li>Lender fees</li>
+											<li>Title insurance</li>
+											<li>Other fees/costs</li>
+										</ul>
+									</div>
+									<div class="cd-products-wrapper">
+										<ul class="cd-products-columns">
+											<!-- loan 1 -->
+											<li class="product">
+												<div class="">
+													Loan 1
+												</div>
+												<ul class="cd-features-list">
+													<!-- Original loan amount ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="loanAmount1" id="loanAmount1" class="form-control" aria-describedby="loanAmount1" length="9" autofocus />
+														</div>
+													</li>
+													<!-- Term (in years) -->
+													<li>
+														<div class="input-group">
+															<input name="termYears1" id="termYears1" class="form-control" aria-describedby="termYears1" maxlength="2" />
+															<span class="input-group-addon" style="">yrs</span>
+														</div>
+													</li>
+													<!-- Annual interest rate -->
+													<li>
+														<div class="input-group">
+															<input name="statedRate1" id="statedRate1" class="form-control" aria-describedby="statedRate1" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Discount points -->
+													<li>
+														<div class="input-group">
+															<input name="discount1" id="discount1" class="form-control" aria-describedby="discount1" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Origination fee -->
+													<li>
+														<div class="input-group">
+															<input name="origination1" id="origination1" class="form-control" aria-describedby="origination1" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Lender fees (processing/underwriting) ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="lender1" id="lender1" class="form-control" aria-describedby="lender1" length="9" />
+														</div>
+													</li>
+													<!-- Title insurance ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="title1" id="title1" class="form-control" aria-describedby="title1" length="9" />
+														</div>
+													</li>
+													<!-- Other fees and costs ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="other1" id="other1" class="form-control" aria-describedby="other1" length="9" />
+														</div>
+													</li>
+												</ul>
+											</li>
+											<!-- loan 2 -->
+											<li class="product">
+												<div class="">
+													Loan 2
+												</div>
+												<ul class="cd-features-list">
+													<!-- Original loan amount ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="loanAmount2" id="loanAmount2" class="form-control" aria-describedby="loanAmount2" length="9" />
+														</div>
+													</li>
+													<!-- Term (in years) -->
+													<li>
+														<div class="input-group">
+															<input name="termYears2" id="termYears2" class="form-control" aria-describedby="termYears2" maxlength="2" />
+															<span class="input-group-addon" style="">yrs</span>
+														</div>
+													</li>
+													<!-- Annual interest rate -->
+													<li>
+														<div class="input-group">
+															<input name="statedRate2" id="statedRate2" class="form-control" aria-describedby="statedRate2" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Discount points -->
+													<li>
+														<div class="input-group">
+															<input name="discount2" id="discount2" class="form-control" aria-describedby="discount2" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Origination fee -->
+													<li>
+														<div class="input-group">
+															<input name="origination2" id="origination2" class="form-control" aria-describedby="origination2" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Lender fees (processing/underwriting) ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="lender2" id="lender2" class="form-control" aria-describedby="lender2" length="9" />
+														</div>
+													</li>
+													<!-- Title insurance ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="title2" id="title2" class="form-control" aria-describedby="title2" length="9" />
+														</div>
+													</li>
+													<!-- Other fees and costs ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="other2" id="other2" class="form-control" aria-describedby="other2" length="9" />
+														</div>
+													</li>
+												</ul>
+											</li>
+											<!-- loan 3 -->
+											<li class="product">
+												<div class="">
+													Loan 1
+												</div>
+												<ul class="cd-features-list">
+													<!-- Original loan amount ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="loanAmount3" id="loanAmount3" class="form-control" aria-describedby="loanAmount3" length="9" />
+														</div>
+													</li>
+													<!-- Term (in years) -->
+													<li>
+														<div class="input-group">
+															<input name="termYears3" id="termYears3" class="form-control" aria-describedby="termYears3" maxlength="2" />
+															<span class="input-group-addon" style="">yrs</span>
+														</div>
+													</li>
+													<!-- Annual interest rate -->
+													<li>
+														<div class="input-group">
+															<input name="statedRate3" id="statedRate3" class="form-control" aria-describedby="statedRate3" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Discount points -->
+													<li>
+														<div class="input-group">
+															<input name="discount3" id="discount3" class="form-control" aria-describedby="discount3" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Origination fee -->
+													<li>
+														<div class="input-group">
+															<input name="origination3" id="origination3" class="form-control" aria-describedby="origination3" maxlength="5" />
+															<span class="input-group-addon" style="">%</span>
+														</div>
+													</li>
+													<!-- Lender fees (processing/underwriting) ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="lender3" id="lender3" class="form-control" aria-describedby="lender3" length="9" />
+														</div>
+													</li>
+													<!-- Title insurance ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="title3" id="title3" class="form-control" aria-describedby="title3" length="9" />
+														</div>
+													</li>
+													<!-- Other fees and costs ($) -->
+													<li>
+														<div class="input-group">
+															<span class="input-group-addon" style="">$</span>
+															<input name="other3" id="other3" class="form-control" aria-describedby="other3" length="9" />
+														</div>
+													</li>
+												</ul>
+											</li>
+										</ul>
+
+									</div>
+									<ul class="cd-table-navigation">
+										<li><a href="#0" class="prev inactive">Prev</a></li>
+										<li><a href="#0" class="next">Next</a></li>
+									</ul>
+								</div>
+								<!-- .cd-products-table -->
+							</div>
+							<!--buttons-->
+							<div class="row">
+								<div class="form-group col-xs-12 margin-top20 ">
+									<button class="btn btn-default center col-xs-4 col-sm-2" type="reset" style="margin-right: 5px">Reset</button>
+									<button class="btn btn-primary center col-xs-7 col-sm-3" type="submit">Calculate</button>
+								</div>
+							</div>
+							<!--end buttons-->
+						</form>
+					</div>
+					<!--results-->
+					<div class="row">
+						<div id="resultContainer" class="col-xs-12" style="">
+							<div id="resultsTableContainer" class="" style="">
+							</div>
+						</div>
+					</div>
+					<!-- Bottom Copy-->
+					<div class="row">
+						<div id="" class="col-xs-12" style="">
+							<p>&nbsp</p>
+							<p>Our mortgage loan calculators were designed to help you become better informed about all of your choices so you can shop smarter. View more <a href="/mortgage-resources/calculators">calculators</a>.</p>
+							<p>Have questions? Want to learn more about home loans? Contact us <a href="/about-us/contact">online</a> or call <span style="display:inline-block; white-space:nowrap;">800-317-7463</span>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon" id="favicon">
+	<title>Mortgage Calculator</title>
+	<!--Style Sheets-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/calcapps.css" />
+
+	<!--Library Scripts-->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/Chart.js"></script>
+	<script src="js/commonCalc.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/paying-extra-monthly-toward-your-principal.js"></script>
+
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="stretched no-transition" itemid="body">
+	<div class="container clearfix" style="margin-top:10px">
+		<div class="row">
+			<div id="menuContainer" class="hidden-xs hidden-sm col-md-3">
+			</div>
+			<!--Begin the App-->
+			<div class="col-xs-12 col-md-9">
+				<div>
+					<h3 class="noTopMargin visible-md visible-lg">Paying Extra Monthly Toward Your Principal May Accelerate Your Mortgage Payoff</h3>
+					<p class="visible-md visible-lg">Over the course of a loan amortization you will spend hundreds, thousands, and maybe even hundreds of thousands in interest. By making a small additional monthly payment toward principal, you can greatly accelerate the term of the loan and, thereby,
+						realize tremendous savings in interest payments. Use our extra payment calculator to determine how much more quickly you may be able to pay off your debt.</p><br>
+					<div id="calcPageheaderMobile" class="visible-xs visible-sm ">
+						<h2 class="noTopMargin marginCenter" style="font-size: 1.2em; text-align: center;font-weight: bold; text-align: left">Paying Extra Monthly Toward Your Principal May Accelerate Your Mortgage Payoff<a data-toggle="collapse" data-target="#mblIntroParagraph"><span class="glyphicon glyphicon-question-sign"></span></a>
+						</h2>
+						<div id="mblIntroParagraph" class="collapse">
+							<p>Over the course of a loan amortization you will spend hundreds, thousands, and maybe even hundreds of thousands in interest. By making a small additional monthly payment toward principal, you can greatly accelerate the term of the loan and, thereby,
+								realize tremendous savings in interest payments. Use our extra payment calculator to determine how much more quickly you may be able to pay off your debt.</p>
+						</div>
+					</div>
+					<div class="row">
+						<div id="formContainer" class="col-xs-12 col-sm-4">
+							<!--Begin Form-->
+							<form id="restRequestForm" name="restRequestForm" method="post" action="" class="marginCenter col-xs-12" role="form" data-toggle="validator">
+								<!--Loan Amount Input-->
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<label class="" for="loanAmount">Loan amount <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the amount you will be borrowing."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+										<div class="input-group">
+											<span class="input-group-addon" style="">$</span>
+											<input name="loanAmount" id="loanAmount" class="form-control" aria-describedby="loanAmount" minlength="5" maxlength="8" required autofocus />
+										</div>
+									</div>
+								</div>
+								<!--Interest Rate input-->
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<label for="interestRate" class="control-label">Interest rate <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the Annual Interest Rate (0% to 40%)"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+										<div class="input-group">
+											<input name="interestRate" id="interestRate" type="text" class="form-control" aria-describedby="interestRate" maxlength="4" required/>
+											<span class="input-group-addon" style="margin-left: -1px">Annual %</span>
+										</div>
+									</div>
+								</div>
+								<!--Term-->
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<label class="" for="termMonths">Initial term in months <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the initial term in months"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+										<div class="input-group">
+											<input name="termMonths" id="termMonths" type="text" class="form-control" aria-describedby="termMonths" maxlength="3" required/>
+											<span class="input-group-addon" style="margin-left: -1px">months</span>
+										</div>
+										<span id="helpBlock" class="help-block">(30yrs=360) (15yrs=180)</span>
+									</div>
+								</div>
+								<!--Number of payments already made (1 to 360)-->
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<label class="" for="paymentsMade">Number of payments already made (1 to 360)<a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the number of payments already made"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+										<div class="input-group">
+											<input name="paymentsMade" id="paymentsMade" type="text" class="form-control" aria-describedby="paymentsMade" maxlength="3" required />
+											<span class="input-group-addon" style="margin-left: -1px">payments</span>
+										</div>
+									</div>
+								</div>
+								<!--Proposed additional monthly payment ($)-->
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<label class="" for="additionalPayment">Proposed additional monthly payment <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the amount you will be borrowing."><span class="glyphicon glyphicon-question-sign"></span></a></label>
+										<div class="input-group">
+											<span class="input-group-addon" style="">$</span>
+											<input name="additionalPayment" id="additionalPayment" class="form-control" aria-describedby="additionalPayment" minlength="1" maxlength="5" required />
+										</div>
+									</div>
+								</div>
+
+								<!--buttons-->
+								<div class="row">
+									<div class="form-group col-xs-12 margin-top20">
+										<button class="btn btn-default center col-xs-4" type="reset" style="margin-right: 5px">Reset</button>
+										<button class="btn btn-primary center col-xs-7 pull-right" type="submit">Calculate</button>
+									</div>
+								</div>
+								<!--end buttons-->
+							</form>
+						</div>
+						<!--results-->
+						<div id="resultContainer" class="col-xs-12 col-sm-7" style="">
+							<div>
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active"><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a></li>
+									<li role="presentation"><a href="#resultsGraphic" aria-controls="resultsGraphic" role="tab" data-toggle="tab">Chart</a></li>
+									<li role="presentation"><a href="#resultsTableContainer" aria-controls="resultsTableContainer" role="tab" data-toggle="tab">Results Table</a></li>
+								</ul>
+								<!-- Tab panes -->
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane fade active in col-xs-12" id="summary">
+
+									</div>
+									<div role="tabpanel" class="tab-pane fade margin-top20" id="resultsGraphic">
+
+									</div>
+									<div role="tabpanel" class="tab-pane fade col-xs-12 margin-top20" id="resultsTableContainer">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>

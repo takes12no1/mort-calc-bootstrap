@@ -1,0 +1,103 @@
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus {
+	outline: 0;
+}
+
+label {
+	font-weight: normal;
+}
+
+.form-group-col-colored {
+	margin-bottom: 0px;
+	padding-bottom: 15px;
+}
+
+.lato {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+}
+
+.noMargin {
+	margin: 0px !important
+}
+
+.noLeftMargin {
+	margin-left: 0px !important
+}
+
+.noLeftPadding {
+	padding-left: 0px !important
+}
+
+.noRightMargin {
+	margin-right: 0px !important
+}
+
+.marginCenter {
+	margin-left: auto !important;
+	margin-right: auto !important
+}
+
+.margin-top20 {
+	margin-top: 20px;
+}
+
+.affix {
+	top: 0;
+	width: 90%;
+	z-index: 100;
+	background-color: white;
+	margin-left: -31px;
+	margin-right: 0px;
+	/*border-bottom: 1px solid black;*/
+}
+
+.affix+.container-fluid {
+	padding-top: 50px;
+}
+
+#homePriceHelpSlider {
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	display: none;
+}
+
+.form-control {
+	-webkit-appearance: menulist !important;
+}
+
+.glyphicon-question-sign {
+	color: #c3c3c3;
+}
+
+.popover {
+	max-width: 1000px !important;
+}
+
+@media only screen and (max-width: 360px) {
+	div #resultContainer {
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+	div #scheduleContainer {
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+	#mortCalcChart {
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+}
+
+@media only screen and (min-width: 630px) {
+	.cd-table-navigation a {
+		display: none;
+	}
+}

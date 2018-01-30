@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon" id="favicon">
+	<title>Mortgage Calculator</title>
+	<!--Style Sheets-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/calcapps.css" />
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<!--Library Scripts-->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/Chart.js"></script>
+	<script src="js/commonCalc.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/mortgage-calculator.js"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<script src="https://use.typekit.net/bhs1gca.js"></script>
+	<script>
+		try {
+			Typekit.load({
+				async: true
+			});
+		}
+		catch (e) {}
+	</script>
+</head>
+<style>
+	.applyNowBlueBackground {
+		background-color: #099FD6
+	}
+	
+	#rightFloatingResultsSidebar .affix {
+		margin-left: 0px;
+	}
+	
+	.input-group .input-group-addon+.form-control {
+		border-left: none;
+	}
+</style>
+
+<body class="stretched no-transition" itemid="body">
+	<div class="container clearfix" style="margin-top:10px">
+		<div class="row">
+			<div id="menuContainer" class="hidden-xs hidden-sm col-md-3">
+			</div>
+			<div class="col-xs-12 col-md-9">
+				<!--Begin the App-->
+				<div class="row">
+					<div class="col-xs-12" style="margin-bottom: 32px">
+						<p class="noTopMargin visible-md visible-lg" id="contentTitle" style="color:#23395B; font-size: 3.4em; font-family: 'futura-pt',sans-serif; font-weight: 400 ">Mortgage Payment Calculator</p>
+						<p class="visible-md visible-lg" id="contentSummary" style="color:#23395B">See how much your monthly mortgage payments would be for a given loan amount, interest rate and loan term, and how extra payments can affect your pay off date and total amount of interest paid over the term of the loan.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div id="mainFormContent" class="col-xs-12 col-sm-8" style="padding-right: 0px">
+						<!--Form and results tabs-->
+						<div class="col-xs-12" id="" style="padding-left: 0;padding-right: 0px;">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist" style="padding-left: 0px; border-bottom: 1px solid #099FD6; padding-bottom: .4em">
+								<li role="presentation" class="active"><a href="#calcFormContainer" aria-controls="calcFormContainer" role="tab" data-toggle="tab" style="font-size: 1.2em; Color: #099FD6; border: 1px solid #099FD6; margin-bottom: 5px; border-radius: 0px; padding: .8em 2em; margin-right: 1.2em">Home Loan Info</a></li>
+								<li role="presentation"><a href="#compareLoanTypes" aria-controls="compareLoanTypes" role="tab" data-toggle="tab" style="font-size: 1.2em; Color: #555559; border: 1px solid #555559; margin-bottom: 5px; border-radius: 0px; padding: .8em 1em;">Compare Loan Types</a></li>
+							</ul>
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active in" id="calcFormContainer" style="padding-top: 16px">
+									<!--Begin Form-->
+									<form id="restRequestForm" name="restRequestForm" method="post" action="" class="form-inline" role="form" data-toggle="validator" style="overflow:auto">
+										<!--Property Value Input-->
+										<div class="form-group col-xs-12 col-sm-4" style="padding-left: 0px">
+											<label id="homePriceLbl" class="calcLabels" for="propertyValue" style="font-size: 12px; color: #23395B">Home Price</label>
+											<div class="input-group" style="">
+												<span class="input-group-addon">$</span>
+												<input name="propertyValue" id="propertyValue" type="text" class="form-control" aria-describedby="propertyValue" autofocus required maxlength="9" style="line-height: 1.5em; font-size: 1.2em; border-bottom-width: 2px; box-shadow: none;background-color: #F7F7F7;  border-top-color: #F7F7F7; border-left-color: #F7F7F7; border-right-color: #F7F7F7; border-bottom-color: rgb(9, 159, 214); border-radius: 0px;"
+												/>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+											<p style="padding-top: 1.4em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+										<!--Loan Amount Input-->
+										<div class="form-group col-xs-12 col-sm-4" style="padding-left: 0px">
+											<label class="" for="loanAmount" style="">Down Payment </label><br>
+											<div class="input-group">
+												<input name="loanAmount" id="loanAmount" type="text" class="form-control" placeholder="Enter Loan Amount" aria-describedby="loanAmount" maxlength="10" autofocus />
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+											<p style="padding-top: 1.4em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+										<!--Interest Rate input-->
+										<div class="form-group col-xs-12 col-sm-4" style="padding-left: 0px">
+											<label for="interestRate" class="control-label">Interest Rate <a data-toggle="popover" data-trigger="hover"  data-placement="bottom" data-container="body" data-content="Enter the Annual Interest Rate"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+											<div class="input-group">
+												<input name="interestRate" id="interestRate" type="text" class="form-control" aria-describedby="interestRate" maxlength="6" />
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+											<p style="padding-top: 1.4em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+										<!--Loan Amount Input-->
+										<div class="form-group col-xs-12 col-sm-4" style="padding-left: 0px">
+											<label class="" for="loanAmount" style="">Loan amount </label><br>
+											<div class="input-group">
+												<input name="loanAmount" id="loanAmount" class="" placeholder="Enter Loan Amount" aria-describedby="loanAmount" maxlength="10" autofocus />
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+											<p style="padding-top: 1.4em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+										<!--Term-->
+										<div class="form-group col-xs-12 col-sm-4" style="padding-left: 0px">
+											<label class="" for="termMonths">Number of months </label>
+											<div class="input-group">
+												<input name="termMonths" id="termMonths" type="text" class="form-control" aria-describedby="termMonths" maxlength="3" />
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+											<p style="padding-top: 1.4em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+										<!--Property Taxes Rate Input-->
+										<div class="form-group col-xs-12 col-sm-4" style="padding-left: 0px">
+											<label for="propertyTaxes" class="control-label">Property taxes </label>
+											<div class="input-group">
+												<input name="propertyTaxes" id="propertyTaxes" type="text" class="form-control" aria-describedby="propertyTaxes" maxlength="6" />
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8" style="padding-left: 0px">
+											<p style="padding-top: 1.4em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+
+
+
+
+									</form>
+								</div>
+								<div role="tabpanel" class="tab-pane fade margin-top20" id="compareLoanTypes">
+									<form>Compare Loan Types</form>
+								</div>
+							</div>
+							<!--END Tab panes-->
+						</div>
+						<!--END Form and results tabs-->
+					</div>
+					<div id="rightFloatingResultsSidebar" class="col-xs-12 col-sm-4">
+						<div data-spy="affix" data-offset-top="100">
+							<!--Results Summary-->
+							<div class="" style="border: 1px solid #099FD6; max-width: 250px; overflow: auto;">
+								<div class="applyNowBlueBackground" style="margin-bottom: 16px">
+									<div style="text-align: center; color: white; font-size: 18px; padding: 10px">Your estimated monthly payment is</div>
+									<div style="text-align: center; color: white; font-size: 36px; padding: 3px">$1,176</div>
+									<div style="text-align: center; color: white; font-size: 14px; padding-bottom: 18px">30 year fixed loan</div>
+								</div>
+								<!--Results-->
+								<div class="col-xs-12" id="" style="font-family: 'lato',san-serif; max-width: 360px; line-height: 26px">
+									<div class="row" style="margin-bottom: .8em">
+										<div class="col-xs-8" style="color: #555559; font-weight:600">Principle & Interest</div>
+										<div class="col-xs-3" style="color: #099FD6; font-weight:700; text-align: right;padding-right:0px;padding-left:0px">$734</div>
+									</div>
+									<div class="row" style="margin-bottom: .8em">
+										<div class="col-xs-8" style="color: #555559; font-weight:600">Property Taxes</div>
+										<div class="col-xs-3" style="color: #099FD6; font-weight:700; text-align: right;padding-right:0px;padding-left:0px">$113</div>
+									</div>
+									<div class="row" style="margin-bottom: .8em">
+										<div class="col-xs-8" style="color: #555559; font-weight:600">Home Insurance</div>
+										<div class="col-xs-3" style="color: #099FD6; font-weight:700; text-align: right;padding-right:0px;padding-left:0px">$75</div>
+									</div>
+									<div class="row" style="margin-bottom: .8em">
+										<div class="col-xs-8" style="color: #555559; font-weight:600">PMI</div>
+										<div class="col-xs-3" style="color: #099FD6; font-weight:700; text-align: right;padding-right:0px;padding-left:0px">$0</div>
+									</div>
+									<div class="row" style="margin-bottom: .8em">
+										<div class="col-xs-8" style="color: #555559; font-weight:600">Total Payment</div>
+										<div class="col-xs-3" style="color: #099FD6; font-weight:700; text-align: right;padding-right:0px;padding-left:0px">$214</div>
+									</div>
+									<div class="row" style="margin-bottom: .8em">
+										<div class="col-xs-12" style="color: #555559; font-weight:500;font-size: 18px;line-height: 36px">Pay off Date: June 2047</div>
+									</div>
+								</div>
+								<!--Print and Email-->
+								<div class="col-xs-12 " id="emailPrintContainer" style="; padding-right: 0">
+									<a href="#">
+										<div id="printResultsBtn" class="col-xs-6" style="color: #555559; padding: .5em 0">
+											<i class="fa fa-print"></i> <span style="text-decoration: underline; text-decoration-style: dotted;">Print results</span>
+										</div>
+									</a>
+									<a href="#">
+										<div id="emailResultsBtn" class="col-xs-6" style="color: #555559; padding: .5em">
+											<i class="fa fa-envelope"></i> <span style="text-decoration: underline; text-decoration-style: dotted;">Email results</span>
+										</div>
+									</a>
+								</div>
+								<!--END Print and Email-->
+							</div>
+							<div class="" style="max-width: 250px; overflow: auto;">
+								<!--CTA Row-->
+								<div class="col-xs-12" id="calcCTAContainer" style="line-height: 3em; background-color:#EBEBEB;margin-top: 10px">
+									<div id="calcCTARow" class="row" style="padding: 10px">
+										<div class="col-xs-12" style="color: #107E7D; font-size: 20px">
+											Ready to get started?
+										</div>
+										<div class="col-xs-12">
+											<button id="applyNowBtn" class="btn" href="#" style="width: 100%; margin-right:20px; background-color: #099FD6; color: #fff; font-weight: bold; font-family: 'pt-futura', sans-serif; font-size: 1.1em; padding-left: 30px; padding-right: 30px">Apply Now</button>
+										</div>
+										<div class="col-xs-12" style="">
+											<button id="connectWithLoanExpertBtn" class="btn" href="#" style="width: 100%; background-color: #23395B; color: #fff; font-weight: bold; font-family: 'pt-futura', sans-serif; font-size: 1.1em">Connect with a Loan Expert</button>
+										</div>
+									</div>
+								</div>
+								<!--END CTA Row-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
