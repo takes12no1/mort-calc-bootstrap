@@ -55,7 +55,7 @@
 							<div class="col-xs-1" style="padding-top: 2px">
 								<div style="width: 15px; height: 15px;border-radius: 10px; background-color: #099FD6"></div>
 							</div>
-							<div class="col-xs-8" style="color: #555559; font-weight:600">Principle & Interest</div>
+							<div class="col-xs-8" style="color: #555559; font-weight:600">Principle &amp; Interest</div>
 							<div class="col-xs-2" style="color: #099FD6; font-weight:700; text-align: right;padding-right:0px;padding-left:0px">$734</div>
 						</div>
 						<div class="row" style="margin-bottom: .8em">
@@ -114,61 +114,66 @@
 							
 							<!--Begin Form-->
 							<form id="restRequestForm" name="restRequestForm" method="post" action="" class="form-inline" role="form" data-toggle="validator">
-								<!--Property Value Input-->
-								<div class="form-group col-xs-12 col-sm-3" style="padding-left: 0px">
-									<label id="homePriceLbl" class="calcLabels" for="propertyValue" style="font-size: 12px; color: #23395B">Home Price</label>
-									<div class="input-group" style="">
-										<span class="input-group-addon" style="line-height: 1.5em; font-size: 1.2em; border-bottom-width: 2px; box-shadow: none;background-color: #F7F7F7;  border-top-color: #F7F7F7; border-left-color: #F7F7F7; border-right-color: #F7F7F7; border-bottom-color: rgb(9, 159, 214); border-radius: 0px;">$</span>
-										<input name="propertyValue" id="propertyValue" type="text" class="form-control" aria-describedby="propertyValue" autofocus required maxlength="9" style="line-height: 1.5em; font-size: 1.2em; border-bottom-width: 2px; box-shadow: none;background-color: #F7F7F7;  border-top-color: #F7F7F7; border-left-color: #F7F7F7; border-right-color: #F7F7F7; width: 80%; border-bottom-color: rgb(9, 159, 214); border-radius: 0px;"
-										/>
+								<div class="row">
+									<!--Property Value Input-->
+									<div class="form-group col-xs-12 col-sm-3" style="padding-left: 0px">
+										<label id="homePriceLbl" class="calcLabels" for="propertyValue" style="font-size: 12px; color: #23395B">Home Price</label>
+										<div class="input-group" style="">
+											<span class="input-group-addon">$</span>
+											<input name="propertyValue" id="propertyValue" type="text" class="form-control" aria-describedby="propertyValue" autofocus required maxlength="9"/>
+										</div>
+										<a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body"><span class="fa fa-question-circle-o" style="color: #b3b9b9; font-size: 20px;"></span></a>
 									</div>
-									<a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body"><span class="fa fa-question-circle-o" style="color: #b3b9b9; font-size: 20px;"></span></a>
-								</div>
-								
-								<!--Loan Amount Input-->
-								<div class="form-group col-xs-12 col-sm-3">
-									<label class="" for="loanAmount" style="">Down Payment </label><br>
-									<div class="input-group">
-										<input name="loanAmount" id="loanAmount" class="" placeholder="Enter Loan Amount" aria-describedby="loanAmount" maxlength="10" autofocus />
+									
+									<!--Loan Amount Input-->
+									<div class="form-group col-xs-12 col-sm-3">
+										<label class="" for="loanAmount" style="">Down Payment </label><br>
+										<div class="input-group">
+											<span class="input-group-addon">$</span>
+											<input name="loanAmount" id="loanAmount" class="" placeholder="Enter Loan Amount" aria-describedby="loanAmount" maxlength="10"/>
+										</div>
 									</div>
-								</div>
-								<!--Interest Rate input-->
-								<div class="form-group col-xs-12 col-sm-3">
-									<label for="interestRate" class="control-label">Interest Rate <a data-toggle="popover" data-trigger="hover"  data-placement="bottom" data-container="body" data-content="Enter the Annual Interest Rate"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-									<div class="input-group">
-										<input name="interestRate" id="interestRate" type="text" class="form-control" aria-describedby="interestRate" maxlength="6" />
-										<span class="input-group-addon" style="margin-left: -1px">Annual %</span>
+									<!--Interest Rate input-->
+									<div class="form-group col-xs-12 col-sm-3">
+										<label for="interestRate" class="control-label">Interest Rate <a data-toggle="popover" data-trigger="hover"  data-placement="bottom" data-container="body" data-content="Enter the Annual Interest Rate"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+										<div class="input-group">
+											<input name="interestRate" id="interestRate" type="text" class="form-control" aria-describedby="interestRate" maxlength="6" />
+											<span class="input-group-addon" style="margin-left: -1px">Annual %</span>
+										</div>
 									</div>
-								</div>
-								<!--Loan Amount Input-->
-								<div class="form-group col-xs-12 col-sm-3">
-									<label class="" for="loanAmount" style="">Loan amount </label><br>
-									<div class="input-group">
-										<span class="input-group-addon" style="">$</span>
-										<input name="loanAmount" id="loanAmount" class="" placeholder="Enter Loan Amount" aria-describedby="loanAmount" maxlength="10" autofocus />
-									</div>
-									<a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the amount you will be borrowing."><span class="glyphicon glyphicon-question-sign"></span></a>
-								</div>
-								<!--Term-->
-								<div class="form-group col-xs-12 col-sm-3">
-									<label class="" for="termMonths">Number of months <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the Term in Months"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-									<div class="input-group">
-										<input name="termMonths" id="termMonths" type="text" class="form-control" aria-describedby="termMonths" maxlength="3" />
-										<span class="input-group-addon" style="margin-left: -1px">months</span>
-									</div>
-									<span id="helpBlock" class="help-block">(30yrs=360) (15yrs=180)</span>
 								</div>
 
-								<!--Property Taxes Rate Input-->
-								<div class="form-group col-xs-12 col-sm-3">
-									<label for="propertyTaxes" class="control-label">Property taxes <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the Annual property taxes"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-									<div class="input-group">
-										<span class="input-group-addon" style="">$</span>
-										<input name="propertyTaxes" id="propertyTaxes" type="text" class="form-control" aria-describedby="propertyTaxes" maxlength="6" />
-										<span class="input-group-addon" style="margin-left: -1px">/yr </span>
+								<div class="row">
+									<!--Loan Amount Input-->
+									<div class="form-group col-xs-12 col-sm-3">
+										<label class="" for="loanAmount" style="">Loan amount </label><br>
+										<div class="input-group">
+											<span class="input-group-addon" style="">$</span>
+											<input name="loanAmount" id="loanAmount" class="" placeholder="Enter Loan Amount" aria-describedby="loanAmount" maxlength="10" />
+										</div>
+									</div>
+									<!--Term-->
+									<div class="form-group col-xs-12 col-sm-3">
+										<label class="" for="termMonths">Number of months <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the Term in Months"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+										<div class="input-group">
+											<input name="termMonths" id="termMonths" type="text" class="form-control" aria-describedby="termMonths" maxlength="3" />
+											<span class="input-group-addon" style="margin-left: -1px">months</span>
+										</div>
+										<span id="helpBlock" class="help-block">(30yrs=360) (15yrs=180)</span>
+									</div>
+
+									<!--Property Taxes Rate Input-->
+									<div class="form-group col-xs-12 col-sm-3">
+										<label for="propertyTaxes" class="control-label">Property taxes <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the Annual property taxes"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+										<div class="input-group">
+											<span class="input-group-addon" style="">$</span>
+											<input name="propertyTaxes" id="propertyTaxes" type="text" class="form-control" aria-describedby="propertyTaxes" maxlength="6" />
+											<span class="input-group-addon" style="margin-left: -1px">/yr </span>
+										</div>
 									</div>
 								</div>
-								<div id="advanced" class="collapse" style="">
+
+								<div id="advanced" class="collapse">
 									<!--Hazard Insurance-->
 									<div class="form-group col-xs-12 col-sm-3">
 										<label for="hazardInsurance" class="control-label">Hazard Insurance <a data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body" data-content="Enter the annual hazard insurance amount"><span class="glyphicon glyphicon-question-sign"></span></a></label>
